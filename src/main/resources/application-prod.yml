@@ -1,7 +1,3 @@
-app:
-  version: ${APP_VERSION}
-  environment: production
-
 server:
   port: ${PORT}
 

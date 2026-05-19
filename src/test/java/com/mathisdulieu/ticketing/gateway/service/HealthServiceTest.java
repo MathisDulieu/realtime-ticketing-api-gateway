@@ -1,16 +1,17 @@
 package com.mathisdulieu.ticketing.gateway.service;
 
+import com.mathisdulieu.ticketing.gateway.RealtimeTicketingApiGatewayConfigurationTests;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.context.annotation.Import;
 
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@ActiveProfiles("test")
+@Import(RealtimeTicketingApiGatewayConfigurationTests.class)
 class HealthServiceTest {
 
     @Autowired
@@ -27,8 +28,6 @@ class HealthServiceTest {
         assertThat(healthInfo)
                 .containsKey("status")
                 .containsKey("application")
-                .containsKey("version")
-                .containsKey("environment")
                 .containsKey("timestamp");
     }
 

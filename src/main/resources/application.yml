@@ -1,12 +1,6 @@
 spring:
   application:
     name: realtime-ticketing-api-gateway
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE}
-
-app:
-  version: ${APP_VERSION}
-  environment: ${APP_ENVIRONMENT}
 
 management:
   endpoints:
@@ -19,9 +13,3 @@ management:
   info:
     env:
       enabled: true
-
-info:
-  app:
-    name: ${spring.application.name}
-    version: ${app.version}
-    environment: ${app.environment}

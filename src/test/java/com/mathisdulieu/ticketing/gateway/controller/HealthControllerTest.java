@@ -30,8 +30,6 @@ class HealthControllerTest {
         Map<String, Object> healthInfo = Map.of(
                 "status", "UP",
                 "application", "realtime-ticketing-api-gateway",
-                "version", "0.0.1-TEST",
-                "environment", "test",
                 "timestamp", "2025-01-01T00:00:00Z"
         );
 
@@ -42,8 +40,6 @@ class HealthControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.status").value("UP"))
-                .andExpect(jsonPath("$.application").value("realtime-ticketing-api-gateway"))
-                .andExpect(jsonPath("$.version").value("0.0.1-TEST"))
-                .andExpect(jsonPath("$.environment").value("test"));
+                .andExpect(jsonPath("$.application").value("realtime-ticketing-api-gateway"));
     }
 }
