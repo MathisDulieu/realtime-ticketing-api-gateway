@@ -1,0 +1,32 @@
+app:
+  version: 0.0.1-TEST
+  environment: test
+
+server:
+  port: 0
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+logging:
+  level:
+    root: WARN
+    com.mathisdulieu.ticketing: DEBUG
+
+cors:
+  allowed-origins:
+    - "http://localhost:3000"
+  allowed-methods:
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - OPTIONS
+  allowed-headers:
+    - "*"
+  allow-credentials: true
+  max-age: 3600
