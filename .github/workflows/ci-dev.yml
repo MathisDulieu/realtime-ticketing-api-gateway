@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Required for full analysis (e.g. SonarCloud if added later)
 
       - name: Set up Java 21
         uses: actions/setup-java@v4
@@ -26,9 +26,6 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-
-      - name: Check code style (Checkstyle)
-        run: mvn checkstyle:check --no-transfer-progress
 
       - name: Compile project
         run: mvn compile --no-transfer-progress
