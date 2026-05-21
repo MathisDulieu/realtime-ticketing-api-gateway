@@ -1,9 +1,0 @@
-.git
-.github
-.gitignore
-.mvn
-target/
-*.md
-*.log
-.DS_Store
-Thumbs.db

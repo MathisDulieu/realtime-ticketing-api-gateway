@@ -1,10 +1,7 @@
-# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
-# IDEs
 .idea/
 *.iws
 *.iml
@@ -15,19 +12,11 @@ target/
 *.njsproj
 *.sln
 *.sw?
-
-# Spring Boot
 *.log
 spring-shell.log
-
-# JaCoCo
 **/*.exec
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Env files locaux (ne jamais committer les secrets)
 .env
 .env.local
 .env.*.local

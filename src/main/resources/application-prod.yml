@@ -1,22 +1,25 @@
+# Server
 server:
   port: ${PORT}
 
-spring:
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
-    default-property-inclusion: non_null
-
+# Logging
 logging:
   level:
     root: WARN
     com.mathisdulieu.ticketing: INFO
   pattern:
-    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %-5level [%thread] %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} - %msg%n"
 
+# CORS
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS}
-  allowed-methods: ${CORS_ALLOWED_METHODS}
-  allowed-headers: ${CORS_ALLOWED_HEADERS}
-  allow-credentials: ${CORS_ALLOW_CREDENTIALS}
-  max-age: ${CORS_MAX_AGE}
+
+# Services
+event-api:
+  base-url: ${EVENT_API_BASE_URL}
+
+inventory-api:
+  base-url: ${INVENTORY_API_BASE_URL}
+
+reservation-api:
+  base-url: ${RESERVATION_API_BASE_URL}

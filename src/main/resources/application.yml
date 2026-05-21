@@ -1,15 +1,28 @@
-spring:
-  application:
-    name: realtime-ticketing-api-gateway
+# Build info
+java:
+  build:
+    version: '@maven.compiler.release@'
 
+# Management
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
-  endpoint:
-    health:
-      show-details: always
-  info:
-    env:
+        include: "health,liveness,prometheus"
+      base-path: /monitor
+    endpoint:
+      health:
+        show-details: always
+      metrics:
+        enabled: true
+
+# Fail fast on encoding
+spring:
+  mandatory-file-encoding: UTF-8
+  main.banner-mode: 'off'
+  threads:
+    virtual:
       enabled: true
+
+server:
+  shutdown: graceful

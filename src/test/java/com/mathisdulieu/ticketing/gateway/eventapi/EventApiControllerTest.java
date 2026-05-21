@@ -1,0 +1,62 @@
+package com.mathisdulieu.ticketing.gateway.eventapi;
+
+import com.mathisdulieu.ticketing.gateway.eventapi.response.EventApiResponse;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+
+import java.util.List;
+
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@ActiveProfiles("test")
+@WebMvcTest(EventApiController.class)
+class EventApiControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockitoBean
+    private EventApiService eventApiService;
+
+    @Test
+    void shouldReturnEventApiResponse() throws Exception {
+        // Arrange
+        ResponseEntity<EventApiResponse> eventApiResponse = ResponseEntity.ok(
+            EventApiResponse.builder()
+                .code("anyCode")
+                .errors(List.of("anyError1", "anyError2"))
+                .build()
+        );
+
+        when(eventApiService.doSomething()).thenReturn(eventApiResponse);
+
+        // Act
+        ResultActions resultActions = mockMvc.perform(get("/api/v1/event/example"));
+
+        // Assert
+        String expectedEventApiBodyResponse = """
+            {
+                "code": "anyCode",
+                "errors": [
+                    "anyError1",
+                    "anyError2"
+                ]
+            }
+            """;
+
+        resultActions.andExpect(status().isOk());
+        resultActions.andExpect(content().json(expectedEventApiBodyResponse));
+        verify(eventApiService).doSomething();
+    }
+
+}

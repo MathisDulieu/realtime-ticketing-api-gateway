@@ -1,28 +1,26 @@
+# Server
 server:
   port: 0
 
-spring:
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
-    default-property-inclusion: non_null
-
+# Logging
 logging:
   level:
     root: WARN
     com.mathisdulieu.ticketing: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
+# CORS
 cors:
   allowed-origins:
     - "http://localhost:3000"
-  allowed-methods:
-    - GET
-    - POST
-    - PUT
-    - PATCH
-    - DELETE
-    - OPTIONS
-  allowed-headers:
-    - "*"
-  allow-credentials: true
-  max-age: 3600
+
+# Services
+event-api:
+  base-url: http://localhost:8090/event
+
+inventory-api:
+  base-url: http://localhost:8090/inventory
+
+reservation-api:
+  base-url: http://localhost:8090/reservation
