@@ -1,6 +1,7 @@
 package com.mathisdulieu.ticketing.gateway.reservationapi;
 
-import com.mathisdulieu.ticketing.gateway.reservationapi.response.ReservationApiResponse;
+import com.mathisdulieu.ticketing.library.api.reservation.ReservationApiClient;
+import com.mathisdulieu.ticketing.library.api.reservation.ReservationApiResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -30,14 +32,14 @@ class ReservationApiServiceTest {
             .errors(List.of("any1", "any2"))
             .build();
 
-        when(reservationApiClient.doSomething()).thenReturn(ResponseEntity.ok(reservationApiResponse));
+        when(reservationApiClient.get(anyString())).thenReturn(ResponseEntity.ok(reservationApiResponse));
 
         // Act
         ResponseEntity<ReservationApiResponse> reservationApiResponseResponseEntity = reservationApiService.doSomething();
 
         // Assert
         assertThat(reservationApiResponseResponseEntity).isEqualTo(ResponseEntity.ok(reservationApiResponse));
-        verify(reservationApiClient).doSomething();
+        verify(reservationApiClient).get("/get/any");
     }
 
 }

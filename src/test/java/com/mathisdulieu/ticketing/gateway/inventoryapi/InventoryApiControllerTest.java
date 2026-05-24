@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.inventoryapi;
 
-import com.mathisdulieu.ticketing.gateway.inventoryapi.response.InventoryApiResponse;
+import com.mathisdulieu.ticketing.library.api.inventory.InventoryApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

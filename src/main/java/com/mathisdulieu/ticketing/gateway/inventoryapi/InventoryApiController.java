@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.inventoryapi;
 
-import com.mathisdulieu.ticketing.gateway.inventoryapi.response.InventoryApiResponse;
+import com.mathisdulieu.ticketing.library.api.inventory.InventoryApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.reservationapi;
 
-import com.mathisdulieu.ticketing.gateway.reservationapi.response.ReservationApiResponse;
+import com.mathisdulieu.ticketing.library.api.reservation.ReservationApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;

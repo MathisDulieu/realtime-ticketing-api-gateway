@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.eventapi;
 
-import com.mathisdulieu.ticketing.gateway.eventapi.response.EventApiResponse;
+import com.mathisdulieu.ticketing.library.api.event.EventApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;

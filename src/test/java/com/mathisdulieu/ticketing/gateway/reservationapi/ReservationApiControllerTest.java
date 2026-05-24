@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.reservationapi;
 
-import com.mathisdulieu.ticketing.gateway.reservationapi.response.ReservationApiResponse;
+import com.mathisdulieu.ticketing.library.api.reservation.ReservationApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -1,6 +1,6 @@
 package com.mathisdulieu.ticketing.gateway.eventapi;
 
-import com.mathisdulieu.ticketing.gateway.eventapi.response.EventApiResponse;
+import com.mathisdulieu.ticketing.library.api.event.EventApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
